@@ -1,0 +1,15 @@
+#!/bin/bash
+# Check for missing parameters
+#if [[ -z "$1" ]]; then
+#        echo "Missing parameters! Syntax: ./check_php-fpm.sh <PORT_NO>"
+#        exit 2
+#fi
+cmd=$(/etc/init.d/php-fpm status)
+ if [[ $? == 0 ]];then
+
+	echo "Ok : php-fpm is running."
+	exit 0
+	else
+	echo "Critical:php-fpm is not running." 
+	exit 2
+ fi
